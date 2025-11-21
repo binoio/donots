@@ -1,9 +1,9 @@
-# not_mon
+# notmon
 
-Email sending macOS Python script that is triggered on receipt of a notification.  The email includes a screenshot of the desktop.  Useful for Apple Messages notifications that arrive via a secondary (work) iCloud account that isn't directly monitored.
+Send an email on receipt of a macOS notification.
+
+The email includes a screenshot of the desktop, useful for being notified of Apple Messages or other system notifications.
 
 At a minimum, change the `EMAIL_RECIPIENT` to the intended recipient address and the `SENDING_ACCOUNT` to the sender.  The sender is cc'ed.
 
-Run once manually to accept all of the macOS privacy permission prompts.
-
-The simplistic design also has the side benefit of sending an email if there is a mandatory restart or reboot notification.
+Make sure Apple Mail is configured with a working email account, and trigger at least once manually to accept all of the macOS privacy permission prompts.
