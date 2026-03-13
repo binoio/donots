@@ -33,6 +33,16 @@ APP_PATH="${BUILD_DIR}/Donots.app"
 ENTITLEMENTS="${PROJECT_DIR}/Resources/Donots.entitlements"
 PLIST="${PROJECT_DIR}/Resources/Info.plist"
 
+# Detect GitHub owner/repo from git remote
+GITHUB_REMOTE=$(cd "$PROJECT_DIR/.." && git remote get-url origin 2>/dev/null || echo "")
+if [[ "$GITHUB_REMOTE" =~ github\.com[:/]([^/]+)/([^/.]+) ]]; then
+    GITHUB_OWNER="${match[1]}"
+    GITHUB_REPO="${match[2]}"
+else
+    GITHUB_OWNER="mabino"
+    GITHUB_REPO="donots"
+fi
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Header
 # ─────────────────────────────────────────────────────────────────────────────
@@ -405,8 +415,8 @@ if gh release view "$TAG" &>/dev/null; then
         echo "${GREEN}${BOLD}  ✓ Release ${TAG} updated!${RESET}"
         echo "${GREEN}${BOLD}════════════════════════════════════════════════════════════${RESET}"
         echo ""
-        echo "  ${DIM}GitHub:${RESET}  https://github.com/pubino/donots/releases/tag/${TAG}"
-        echo "  ${DIM}Pages:${RESET}   https://pubino.github.io/donots/"
+        echo "  ${DIM}GitHub:${RESET}  https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/tag/${TAG}"
+        echo "  ${DIM}Pages:${RESET}   https://${GITHUB_OWNER}.github.io/${GITHUB_REPO}/"
         echo ""
         exit 0
     fi
@@ -439,6 +449,6 @@ echo "${GREEN}${BOLD}═══════════════════�
 echo "${GREEN}${BOLD}  ✓ Release ${TAG} complete!${RESET}"
 echo "${GREEN}${BOLD}════════════════════════════════════════════════════════════${RESET}"
 echo ""
-echo "  ${DIM}GitHub:${RESET}  https://github.com/pubino/donots/releases/tag/${TAG}"
-echo "  ${DIM}Pages:${RESET}   https://pubino.github.io/donots/"
+echo "  ${DIM}GitHub:${RESET}  https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/releases/tag/${TAG}"
+echo "  ${DIM}Pages:${RESET}   https://${GITHUB_OWNER}.github.io/${GITHUB_REPO}/"
 echo ""

@@ -80,7 +80,7 @@
   <h2>Download <span class="badge" id="version-badge">v1.0.0</span></h2>
   <p>Get the latest release of Donots for macOS.</p>
   <br>
-  <a class="download-btn" id="download-link" href="https://github.com/pubino/donots/releases/latest">Download from GitHub</a>
+  <a class="download-btn" id="download-link" href="https://github.com/mabino/donots/releases/latest">Download from GitHub</a>
   <p class="requirements">Requires macOS 14 Sonoma or later.</p>
 </div>
 
@@ -109,12 +109,12 @@
 </div>
 
 <footer>
-  <a href="https://github.com/pubino/donots">GitHub</a>
+  <a href="https://github.com/mabino/donots">GitHub</a>
 </footer>
 
 <script>
   // Fetch latest release tag and update the download link
-  fetch('https://api.github.com/repos/pubino/donots/releases/latest')
+  fetch('https://api.github.com/repos/mabino/donots/releases/latest')
     .then(r => r.ok ? r.json() : null)
     .then(data => {
       if (!data) return;
