@@ -1,0 +1,3 @@
+[submodule "donots-app/ship-it"]
+	path = donots-app/ship-it
+	url = git@github.com:mabino/ship-it.git
